@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>авторизация</title>
+</head>
+<body>
+  <br>
+<form class = "box"  method = "post">
+  {{ form.hidden_tag() }}
+  <h1>Login</h1>
+   <p>или <a href="/registration">регистрация</a></p><br>
+
+  {{errorauth}}<br>
+
+  {{ form.mail.label }}<br>
+  {{ form.mail}}<br>
+  {% for error in form.mail.errors %}
+       {{error}}
+  {% endfor %}
+
+  {{ form.password.label }}<br>
+  {{ form.password }}<br>
+  {% for error in form.password.errors %}
+      {{ error }}
+  {% endfor %}
+   <p>{{ form.submit() }}</p></form>
+</body>
+
+</html>

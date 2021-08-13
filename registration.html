@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<form class = "box" method = "post">
+  {{ form.hidden_tag() }}
+  <h1>Регистрация пользователя</h1><br>
+  {{error_reg}}<br>
+
+  {{ form.username.label }}<br>
+  {{ form.username}}<br>
+  {% for error in form.username.errors %}
+       {{error}}
+  {% endfor %}
+
+
+  {{ form.password.label }}<br>
+  {{ form.password }}<br>
+  {% for error in form.password.errors %}
+      {{ error }}
+  {% endfor %}
+
+  {{ form.mail.label }}<br>
+  {{ form.mail}}<br>
+  {% for error in form.mail.errors %}
+       {{error}}
+  {% endfor %}
+
+     {% if form.student(form.mail) %}
+
+    {{ form.clas.label }}<br>
+  {{ form.clas}}<br>
+  {% for error in form.clas.errors %}
+       {{error}}
+  {% endfor %}
+
+    {% endif %}
+
+
+  {{form.submit}}</form>
+</body>
+</html>
